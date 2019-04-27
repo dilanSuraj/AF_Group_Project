@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
+import properties from '../config/propertydb';
 
 const StudentSchema = new mongoose.Schema(
     {
@@ -45,4 +46,4 @@ const StudentSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model('Student',StudentSchema);
+module.exports = mongoose.model('Student',StudentSchema,properties.database);

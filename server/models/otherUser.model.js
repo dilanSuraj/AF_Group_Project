@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
+import properties from '../config/propertydb';
 
 const OtherUserSchema = new mongoose.Schema(
     {
@@ -52,4 +53,4 @@ const OtherUserSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model('OtherUser',OtherUserSchema);
+module.exports = mongoose.model('OtherUser',OtherUserSchema,properties.database);

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import autoIncrement from 'mongoose-sequence';
+import properties from '../config/propertydb';
+
 
 const AssignmentExamSchema = new mongoose.Schema(
     {
@@ -31,4 +33,5 @@ const AssignmentExamSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model('AssignmentExam',AssignmentExamSchema);
+
+module.exports = mongoose.model('AssignmentExam', AssignmentExamSchema,properties.database);

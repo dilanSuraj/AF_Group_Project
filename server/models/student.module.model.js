@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import crypto from 'crypto';
 import autoIncrement from 'mongoose-sequence';
+import properties from '../config/propertydb';
 
 const StudentModuleSchema = new mongoose.Schema(
     {
@@ -16,4 +17,4 @@ const StudentModuleSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model('StudentModule',StudentModuleSchema);
+module.exports = mongoose.model('StudentModule',StudentModuleSchema,properties.database);
