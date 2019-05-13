@@ -11,6 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const courseRouteHandler = require('../routes/course.routes');
+const moduleRouteHandler = require('../routes/studentModule.routes');
 
 
 //connect to mongodb database to a default URL or for a new URL if it is not working
@@ -25,6 +26,7 @@ connection.once('open', function () {
 });
 
 let Course = require('../models/course.model');
+let studentModule = require('../models/student.module.model');
 
 // componentRoutes.route('/').get(function (req,res) {
 //        Course.find(function (err, course) {
@@ -77,6 +79,7 @@ let Course = require('../models/course.model');
 
 //Base URL
 app.use('/api/courses',courseRouteHandler);
+app.use('/api/studentModules',moduleRouteHandler);
 
 
 //Start the server

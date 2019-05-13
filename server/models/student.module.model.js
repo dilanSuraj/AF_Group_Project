@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import crypto from 'crypto';
-import autoIncrement from 'mongoose-sequence';
-import properties from '../config/propertydb';
+const mongoose = require('mongoose');
+// import crypto from 'crypto';
+// import autoIncrement from 'mongoose-sequence';
+const properties = require('../config/propertydb');
 
 const StudentModuleSchema = new mongoose.Schema(
     {
@@ -15,6 +15,17 @@ const StudentModuleSchema = new mongoose.Schema(
             ref: 'Student'
         }
     }
+    // {
+
+    //     examId: {
+    //         type: String,
+    //         ref: 'AssignmentExam'
+    //     },
+    //     studentId: {
+    //         type: String,
+    //         ref: 'Student'
+    //     }
+    // }
 );
 
-module.exports = mongoose.model('StudentModule',StudentModuleSchema,properties.database);
+module.exports = mongoose.model('StudentModule',StudentModuleSchema);
