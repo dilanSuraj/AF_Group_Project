@@ -1,19 +1,20 @@
-import mongoose from 'mongoose';
-import crypto from 'crypto';
-import autoIncrement from 'mongoose-sequence';
-import properties from '../config/propertydb';
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const properties = require('../config/propertydb');
 
-
-const AssignmentExamSchema = new mongoose.Schema(
+const AssignmentExamSchema = new Schema(
     {
+        examId: {
+            type: String,
+            required: 'ID field cannot be empty'
+        },
         description: {
             type: String,
             trim: true,
             required: 'Description field cannot be empty'
         },
         moduleId: {
-            type: mongoose.Schema.ObjectId,
-            ref: 'Module'
+            type: String
         },
         typeOfExam: {
             type: String,
@@ -21,17 +22,14 @@ const AssignmentExamSchema = new mongoose.Schema(
             enum: ['CA','FINAL']
         },
         marks: {
-             type: Number,
-             fullMarks:{
-                type:  Number
-             }
+             type: String
         },
         deadlineDate: {
-            type: Date,
-            default: Date.now
+            type: String
         }
     }
 );
 
+mongoose.model('AssignmentExamSchema', AssignmentExamSchema);
 
-module.exports = mongoose.model('AssignmentExam', AssignmentExamSchema,properties.database);
+module.exports = mongoose;
